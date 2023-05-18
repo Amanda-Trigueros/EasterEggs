@@ -1,16 +1,14 @@
 function TicTacToe() {
 }
 
-function Loader() {
-    const frames = ['|', '/', '-', "\\"];
-    let i = 0;
-    if (i < frames.length) {
+function Loader(frames = ['|', '/', '-', "\\"]) {
+    let index = 0
     setInterval(function () {
+        if (index >= frames.length) index = 0;
         console.clear();
-        console.log(frames[i]);
-        i += 1;
+        console.log(frames[index]);
+        index += 1;
     }, 500);
-    } else {console.clear()}
 };
     
 
@@ -22,3 +20,5 @@ function numberFormatter() {
 
 function EasterEgg() {
 }
+
+Loader()
