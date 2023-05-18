@@ -2,14 +2,15 @@ function TicTacToe() {
 }
 
 function Loader() {
-    this.loaderCharacters = ['|', '/', '-', "\\"]
-    function load() {
-        for (let i=0; i < this.loaderCharacters.length; i++) {
-            console.clear();
-            return console.log(this.loaderCharacters[i]);
-        }
-    }
-}
+    const frames = ['|', '/', '-', "\\"];
+    let i = 0;
+    setInterval(function () {
+        console.clear();
+        console.log(frames[i]);
+        i += 1;
+    }, 300)
+};
+    
 
 function Clock() {
 }
