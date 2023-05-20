@@ -57,11 +57,6 @@ function Clock() {
     });
 }
 
-// Uso de la función constructora
-let clock = new Clock();
-clock.start();
-
-
 function numberFormatter(divider, array) { // 1024 , ["b", "kb", "mb"]
     this.snippet = function (number) {      //2000 =>  2000/1024 = 1.95  1.9kb  //1000
       let count = 0;
@@ -80,4 +75,8 @@ function numberFormatter(divider, array) { // 1024 , ["b", "kb", "mb"]
 function EasterEgg() {
 }
 
+// let clock = new Clock();
+// clock.start();
+
 // Loader()
+numberFormatter()
