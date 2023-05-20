@@ -62,8 +62,20 @@ let clock = new Clock();
 clock.start();
 
 
-function numberFormatter() {
+function numberFormatter(divider, array) { // 1024 , ["b", "kb", "mb"]
+    this.snippet = function (number) {      //2000 =>  2000/1024 = 1.95  1.9kb  //1000
+      let count = 0;
+      let quotient = number;
+      if (number >= divider) {
+        do {
+          count += 1;
+          quotient = quotient / divider;
+        } while (quotient >= divider);
+      }
+      return `${Math.floor(quotient)} ${array[count]}`;
+    };
 }
+
 
 function EasterEgg() {
 }
