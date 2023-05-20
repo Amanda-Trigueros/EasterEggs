@@ -15,7 +15,6 @@ function Loader(frames = ['|', '/', '-', "\\"]) {
     }, 500);
 };
 
-
 function Clock() {
     let self = this;
     let clockInterval;
@@ -57,6 +56,47 @@ function Clock() {
     });
 }
 
+function Marquee(sentence, spaces) {
+    this.frames = [];
+    pos = 0
+
+    this.fill = () => { for (let i = spaces; i >= 0; i--) {
+     let a = " ".repeat(i) + sentence
+     this.frames.push(a)
+    };
+    }
+
+    this.erase = () => { 
+        let size = sentence.length
+        let arr = sentence.split("")
+
+        for (let i = 0; i < size; i++) {
+          arr.shift()
+          this.frames.push(arr.join(""))
+        }
+    }
+
+  this.render = function () {
+    return setInterval(() => {
+    if (pos >= this.frames.length) pos = 0;
+    console.clear();
+    console.log(this.frames[pos]);
+    pos += 1;}, 500)
+  };
+
+  this.run = () => {
+    this.fill()
+    this.erase()
+    const intervalId = this.render();
+
+    setTimeout(() => {
+      clearInterval(intervalId);
+      console.clear();
+    }, (spaces + sentence.length + 1) * 500);
+  };
+
+}
+
 function numberFormatter(divider, array) { // 1024 , ["b", "kb", "mb"]
     this.snippet = function (number) {      //2000 =>  2000/1024 = 1.95  1.9kb  //1000
       let count = 0;
@@ -79,4 +119,3 @@ function EasterEgg() {
 // clock.start();
 
 // Loader()
-numberFormatter()
