@@ -76,23 +76,23 @@ function Marquee(sentence, spaces) {
         }
     }
 
-  this.render = function () {
-    return setInterval(() => {
-    if (pos >= this.frames.length) pos = 0;
-    console.clear();
-    console.log(this.frames[pos]);
-    pos += 1;}, 500)
-  };
+    this.render = function () {
+        return setInterval(() => {
+        if (pos >= this.frames.length) pos = 0;
+        console.clear();
+        console.log(this.frames[pos]);
+        pos += 1;}, 300)
+    };
 
-  this.run = () => {
-    this.fill()
-    this.erase()
-    const intervalId = this.render();
+    this.run = () => {
+        this.fill()
+        this.erase()
+        const intervalId = this.render();
 
-    setTimeout(() => {
-      clearInterval(intervalId);
-      console.clear();
-    }, (spaces + sentence.length + 1) * 500);
+        setTimeout(() => {
+            clearInterval(intervalId);
+            console.clear();
+        }, (spaces + sentence.length + 1) * 500);
   };
 
 }
